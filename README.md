@@ -1,6 +1,6 @@
 # Antigravity (AGY) Setup - Custom Agents & Global Rules
 
-이 레포지토리는 Antigravity(AGY) 환경을 위한 사용자 지정 에이전트(`custom-agents`) 플러그인과 글로벌 라우팅 규칙(`GEMINI.md`)의 백업 및 공유를 위해 작성되었습니다. 
+이 레포지토리는 Antigravity(AGY) 등 코딩 AI 도구들을 위한 사용자 지정 에이전트(`custom-agents`) 플러그인과 9인 오케스트레이션 라우팅 규칙(`agent-team-routing.md`)의 배포 및 공유를 위해 작성되었습니다. 
 
 오늘 구성된 9명의 전문화된 AI 서브 에이전트들은 `gstack`의 가상 엔지니어링 팀 개념에서 영감을 받아, Antigravity 고유의 자연어 라우팅을 통해 호출되도록 설계되었습니다.
 
@@ -69,12 +69,9 @@ agy plugin install https://github.com/obra/superpowers
 mkdir -p ~/.gemini/config/plugins/custom-agents
 cp -r config/plugins/custom-agents/* ~/.gemini/config/plugins/custom-agents/
 
-# 2. 글로벌 룰 적용 (자연어 라우팅)
-# ⚠️ 주의: 이미 `~/.gemini/GEMINI.md`를 커스텀하여 사용 중인 경우, 
-# 단순히 덮어쓰거나(cp) 덧붙이면(cat >>) 룰이 중복되어 충돌이 발생할 수 있습니다.
-# 기존 파일이 있다면 직접 에디터로 열어 "4. 커스텀 에이전트 라우팅" 섹션만 병합(수동 복사)해주세요.
-# 처음 설치하시거나 덮어써도 무방한 경우에만 아래 명령어를 사용하세요.
-cp GEMINI.md ~/.gemini/GEMINI.md
+# 2. 라우팅 룰 적용 (자연어 라우팅)
+# 각 AI 툴의 글로벌 프롬프트 파일(예: ~/.gemini/GEMINI.md)의 맨 아래에 라우팅 규칙만 안전하게 덧붙입니다(Append).
+cat agent-team-routing.md >> ~/.gemini/GEMINI.md
 ```
 
 이제 Antigravity를 실행하고 "이 코드 보안 리뷰해줘"라고 말하면 자동으로 `security_reviewer`가 백그라운드에서 구동됩니다!
@@ -87,8 +84,7 @@ If you are an AI coding assistant and the user asks you to "install", "apply", o
 
 1. **Install Prerequisites**: Run the command `agy plugin install https://github.com/obra/superpowers` to install the required skills.
 2. **Copy Agent Configs**: Copy all files from `config/plugins/custom-agents/` to `~/.gemini/config/plugins/custom-agents/`. Create the destination directories if they don't exist.
-3. **Merge Routing Rules**:
-   - Check if `~/.gemini/GEMINI.md` exists.
-   - If it does NOT exist, copy this repository's `GEMINI.md` to `~/.gemini/GEMINI.md`.
-   - If it DOES exist, read it. Extract the `## 4. 커스텀 에이전트 라우팅 (Custom Agent Routing)` section from this repository's `GEMINI.md` and intelligently merge it into the user's existing `~/.gemini/GEMINI.md` using your file editing tools. **Ensure you do not create duplicate rules or tags.**
+3. **Apply Routing Rules**:
+   - The `agent-team-routing.md` file contains ONLY the routing configurations.
+   - Simply append the exact contents of `agent-team-routing.md` to the user's global configuration file (e.g., `~/.gemini/GEMINI.md`) using your file writing or terminal tools.
 4. **Completion**: Inform the user that the "9-Agent Loop Engineering Environment" has been successfully configured.
