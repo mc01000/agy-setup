@@ -54,7 +54,8 @@
 ### 🚨 사전 요구사항 (Prerequisites)
 이 에이전트들은 최상의 성능을 내기 위해 내부적으로 **Superpowers 스킬 플러그인**을 강제적으로 사용하도록 설계되어 있습니다. 에이전트 적용 전, 반드시 사용자의 Antigravity 환경에 `superpowers` 플러그인이 설치되어 있어야 합니다. (미설치 시 일부 에이전트가 스킬 부재로 오작동을 일으킬 수 있습니다.)
 
-아래 명령어를 실행하여 Antigravity에 Superpowers 플러그인을 먼저 설치해주세요:
+**Antigravity(AGY) 사용자 예시**:
+아래 명령어를 실행하여 Superpowers 플러그인을 먼저 설치해주세요. (Claude Code, Codex 등 다른 AI 도구를 사용 중이시라면 해당 도구의 플러그인/스킬 설치 방식을 따르시면 됩니다.)
 ```bash
 agy plugin install https://github.com/obra/superpowers
 ```
@@ -82,7 +83,7 @@ cat agent-team-routing.md >> ~/.gemini/GEMINI.md
 
 If you are an AI coding assistant and the user asks you to "install", "apply", or "set up" this repository, follow these exact steps autonomously:
 
-1. **Install Prerequisites**: Run the command `agy plugin install https://github.com/obra/superpowers` to install the required skills.
+1. **Install Prerequisites**: If you are Antigravity, run the command `agy plugin install https://github.com/obra/superpowers`. If you are another AI tool (Claude Code, Codex, etc.), install the superpowers skills using your native plugin installation method.
 2. **Copy Agent Configs**: Copy all files from `config/plugins/custom-agents/` to `~/.gemini/config/plugins/custom-agents/`. Create the destination directories if they don't exist.
 3. **Apply Routing Rules**:
    - The `agent-team-routing.md` file contains ONLY the routing configurations.
